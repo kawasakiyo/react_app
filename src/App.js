@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React from 'react'
+import * as tf from '@tensorflow/tfjs'
+
+import Ttt from './Ttt';
+import Canvas from './Canvas';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const item = ["こんにちは！！！", "おい！！！React初心者がよ！！！", "頑張れ！！！バカが！！！！！！"];
+
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.loadModel();
+  }
+
+  async loadModel(){
+    console.log(__filename);
+    console.log(__dirname);
+
+    const model = await tf.loadLayersModel('js_tegaki_class_model/model.json');
+  }
+
+  render(){
+    return (
+      <div className="App">
+        {
+          item.map((string)=> <Ttt message={string} />)
+        }
+        <Canvas />
+      </div>
+    );
+  }
 }
 
 export default App;

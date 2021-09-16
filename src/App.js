@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    localStorage.setItem('model', require('js_tegaki_class_model'));
+    //localStorage.setItem('model', require('js_tegaki_class_model'));
 
     this.state = {
       model: null,
@@ -20,21 +20,23 @@ class App extends React.Component {
     };
 
     this.loadModel = this.loadModel.bind(this);
-    this.loadModel();
+    console.log(`${window.location.origin}/js_tegaki_class_model`);
+
+    //this.loadModel(`${window.location.origin}/js_tegaki_class_model/model.json`);
   }
 
-  async loadModel(){
+  async loadModel(path){
     //console.log(__filename);
     //console.log(__dirname);
 
-    await tf.loadLayersModel('localstrage://js_tegaki_class_model').then((model) => {
+    await tf.loadLayersModel(path).then((model) => {
       this.setState({
         model: model,
         is_loaded: true
       });
       model.summary();
     });
-    
+
   }
 
   render(){

@@ -17,8 +17,21 @@ class Canvas extends React.Component {
     this.setclickflag = this.setclickflag.bind(this);
   }
 
-  resetCanvas(event){
-    console.log(event);
+  resetCanvas(){
+    const canvas = document.querySelector('.Canvas');
+
+    if (canvas.getContext) {
+      var ctx = canvas.getContext('2d');
+      //ctx.fillStyle = "#ffffff";
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      console.log('reset!');
+    }
+  }
+
+  getCanvas(){
+    const canvas = document.querySelector('.Canvas');
+    return canvas.getContext('2d').canvas;
   }
 
   setclickflag(event, bool){
@@ -41,7 +54,7 @@ class Canvas extends React.Component {
 
   draw(event){
     var ntv_event = event.nativeEvent;
-    console.log(ntv_event);
+    //console.log(ntv_event);
     var canvas = ntv_event.target;
 
     var nowX = ntv_event.offsetX;

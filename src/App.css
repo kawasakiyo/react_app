@@ -7,6 +7,21 @@
   pointer-events: none;
 }
 
+.Button {
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  margin: 20px auto;
+  /*padding: 10px 25px;*/
+  border: 1px solid #000;
+  background-color: #ccc;
+}
+
+.Button p{
+  margin: 0px auto;
+  padding: 0px 0px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

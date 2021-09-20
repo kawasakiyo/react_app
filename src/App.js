@@ -19,7 +19,7 @@ class App extends React.Component {
     };
 
     this.CanvasRef = React.createRef();
-    
+
     this.resetCanvas = this.resetCanvas.bind(this);
     this.loadModel = this.loadModel.bind(this);
     this.predict = this.predict.bind(this);
@@ -44,9 +44,11 @@ class App extends React.Component {
   }
 
   predict(event){
+    if (!this.state.is_loaded) return 0;
+
     const tmpcanvas = document.createElement('canvas');
-    tmpcanvas.width = 500;
-    tmpcanvas.height = 500;
+    tmpcanvas.width = 28;
+    tmpcanvas.height = 28;
 
     const img = this.CanvasRef.current.getCanvas();
     //console.log(this.state.tmpCanvas);
@@ -59,13 +61,31 @@ class App extends React.Component {
 
     for (let i = 0; i < rescaled_img.data.length; i += 4) {
       let alpha = rescaled_img.data[i + 3];
+      //r = g = b = a
       rescaled_img.data[i] = rescaled_img.data[i + 1] = rescaled_img.data[i + 2] = alpha;
-      rescaled_img.data[i + 3] = 1.0;
     }
 
-    document.querySelector('.App').appendChild(rescaled_img);
-    //document.querySelector('.App').appendChild(tmp);
+    tf.tidy(() => {
+      // 28 * 28 * 1
+      var img_tensor = tf.browser.fromPixels(rescaled_img, 1);
+
+      //console.log(img_tensor);
+      img_tensor = tf.div(img_tensor, 255.0);
+
+      // 1 * 28 * 28 * 1
+      var input = tf.expandDims(img_tensor);
+
+      //console.log(input.arraySync());
+      //console.log("prediction start");
+      var ans = this.state.model.predict(input);
+      //console.log(ans);
+      ans = tf.squeeze(ans);
+      //console.log(ans.arraySync());
+      return ans.arraySync();
+    });
   }
+
+
 
   render(){
     const canvas = <Canvas ref={this.CanvasRef}/>

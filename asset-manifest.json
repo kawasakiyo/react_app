@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/kawasakiyo/react_app/static/css/main.fc7ca120.chunk.css",
+    "main.js": "/kawasakiyo/react_app/static/js/main.3877f816.chunk.js",
+    "main.js.map": "/kawasakiyo/react_app/static/js/main.3877f816.chunk.js.map",
+    "runtime-main.js": "/kawasakiyo/react_app/static/js/runtime-main.604bd4c3.js",
+    "runtime-main.js.map": "/kawasakiyo/react_app/static/js/runtime-main.604bd4c3.js.map",
+    "static/js/2.5b1089db.chunk.js": "/kawasakiyo/react_app/static/js/2.5b1089db.chunk.js",
+    "static/js/2.5b1089db.chunk.js.map": "/kawasakiyo/react_app/static/js/2.5b1089db.chunk.js.map",
+    "static/js/3.81fe8f82.chunk.js": "/kawasakiyo/react_app/static/js/3.81fe8f82.chunk.js",
+    "static/js/3.81fe8f82.chunk.js.map": "/kawasakiyo/react_app/static/js/3.81fe8f82.chunk.js.map",
+    "index.html": "/kawasakiyo/react_app/index.html",
+    "static/css/main.fc7ca120.chunk.css.map": "/kawasakiyo/react_app/static/css/main.fc7ca120.chunk.css.map",
+    "static/js/2.5b1089db.chunk.js.LICENSE.txt": "/kawasakiyo/react_app/static/js/2.5b1089db.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.604bd4c3.js",
+    "static/js/2.5b1089db.chunk.js",
+    "static/css/main.fc7ca120.chunk.css",
+    "static/js/main.3877f816.chunk.js"
+  ]
+}

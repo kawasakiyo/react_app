@@ -1,58 +1,115 @@
+body{
+  background-color: #eee;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Step2{
+  width: calc(450px + 350px + 4em);
+  display: flex;
+  align-items: flex-end;
+  margin: auto;
+}
+
+.Step3{
+  width: calc((450px + 350px) * 0.7);
+  margin: auto;
+  text-align: left;
+}
+
+.AppHalf {
+  margin: 1em;
+}
+
+.ButtonWrap {
+  display: flex;
 }
 
 .Button {
-  width: 200px;
+  width: 180px;
   height: 40px;
   border-radius: 20px;
   margin: 20px auto;
   /*padding: 10px 25px;*/
-  border: 1px solid #000;
-  background-color: #ccc;
+  border: 1px solid #999;
+  background-color: #fff;
 }
 
 .Button p{
   margin: 0px auto;
   padding: 0px 0px;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
+  line-height: 37px;
 }
 
 .Canvas{
-  border: 1px solid #ccc;
+  border: 1px solid #999;
+  background-color: #fff;
+  width: 450px;
+  height: 450px;
 }
 
+.PredBar{
+  width: 350px;
+  margin: 5px auto;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.PredBar p{
+  margin: 0px;
+  font-size: 1em;
+}
+
+.PredBarLabel{
+  border: 1px #999 solid;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  border-radius: 100px;
+  background-color: white;
+}
+
+.PredBarValue {
+  position: absolute;
+  top: 0;
+  right: 2em;
+  line-height: 2.5em;
+}
+
+.PercentBarWrap {
+  border: 1px #999 solid;
+  border-radius: 100px;
+  background-color: #fff;
+  position: relative;
+  margin-left: 0.3em;
+  width: calc(350px - 0.3em - 2.5em)
+}
+
+.PercentBar{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.4em;
+  height: 100%;
+
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 15%, rgba(0,212,255,1) 100%);
+  border-radius: inherit;
+}
+
+.Bunken {
+  padding: 0.3em 0em;
+}
+
+.Bunken p{
+  margin: 0px;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  padding-right: 0em;
+  padding-left: 1em;
+	text-indent: -1em;
 }

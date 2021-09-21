@@ -7,6 +7,7 @@ class Canvas extends React.Component {
     super(props);
 
     this.state = {
+      reseted: true,
       clicking: false,
       above: false,
       lastX: -1,
@@ -26,6 +27,8 @@ class Canvas extends React.Component {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       console.log('reset!');
+
+      this.setState({reseted: true});
     }
   }
 
@@ -35,22 +38,24 @@ class Canvas extends React.Component {
   }
 
   setclickflag(event, bool){
+    //console.log("change click-flag");
     var ntv_event = event.nativeEvent;
-    if (ntv_event.button == 0) {
+    if (ntv_event.button === 0) {
       this.setState({
         clicking: bool
       });
     }
   }
 
-  setaboveflag(event, bool){
-    var ntv_event = event.nativeEvent;
-    if (ntv_event.button == 0) {
-      this.setState({
-        above: bool
-      });
-    }
-  }
+  // setaboveflag(event, bool){
+  //   console.log("change above-flag");
+  //   var ntv_event = event.nativeEvent;
+  //   if (ntv_event.button === 0) {
+  //     this.setState({
+  //       above: bool
+  //     });
+  //   }
+  // }
 
   draw(event){
     var ntv_event = event.nativeEvent;
@@ -76,6 +81,7 @@ class Canvas extends React.Component {
     }
 
     this.setState({
+      reseted: false,
       lastX: nowX,
       lastY: nowY,
     });
@@ -83,13 +89,11 @@ class Canvas extends React.Component {
 
   render(){
     return (
-      <canvas key='canvas' className='Canvas' width={500} height={500}
+      <canvas key='canvas' className='Canvas' width={450} height={450}
         onMouseMove={this.draw}
         onMouseDown={(e) => this.setclickflag(e, true)}
         onMouseUp={(e) => this.setclickflag(e, false)}
-        onMouseEnter={(e) => this.setaboveflag(e, true)}
-        onMouseLeave={(e) => this.setaboveflag(e, false)}
-        onKeyDown={this.resetCanvas}>
+        onMouseLeave={(e) => this.setclickflag(e, false)}>
 
       </canvas>
     );

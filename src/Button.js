@@ -19,10 +19,10 @@ class Button extends React.Component {
   }
 
   render(){
-    const back_color = (this.state.mouseOn ? {backgroundColor: '#fff'} : {backgroundColor: '#ccc'});
+    const back_color = (this.state.mouseOn ? {backgroundColor: '#ddd'} : {backgroundColor: '#fff'});
 
     return (
-      <div className='Button' 
+      <div className='Button'
         onMouseEnter={(e)=>this.changeMouseFlag(true)}
         onMouseLeave={(e)=>this.changeMouseFlag(false)}
         onClick={(e)=>this.props.parentFunc(e)}
@@ -32,8 +32,5 @@ class Button extends React.Component {
     );
   }
 }
-
-
-        {/**/}
 
 export default Button;
